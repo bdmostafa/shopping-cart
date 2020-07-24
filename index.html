@@ -80,21 +80,48 @@
    <script>
       const plusSignFirst = document.getElementById('plusSignFirst');
       plusSignFirst.addEventListener('click', function () {
-         // adding qty number
-         const qtyItem = document.getElementById('qtyFirstItem').value;
-         const itemValue = parseFloat(qtyItem);
-         document.getElementById('qtyFirstItem').value = itemValue + 1;
-         // console.log(itemNum)
 
-         // quantity number calculated to the price
-         const price = 1219
-         const priceFirstItem = document.getElementById('priceFirstItem').innerText;
-         const priceValue = parseFloat(priceFirstItem);
-         const totalPrice = priceValue + price
-         document.getElementById('priceFirstItem').innerText = totalPrice;
-         // console.log(priceValue)
+         addItem('qtyFirstItem', 'priceFirstItem', 1219);
 
       })
+
+      const minusSignFirst = document.getElementById('minusSignFirst');
+      minusSignFirst.addEventListener('click', function () {
+
+         minusItem('qtyFirstItem', 'priceFirstItem', 1219);
+
+      })
+
+      // Function for adding items
+      function addItem(quantityItem, priceItem, unitPrice) {
+         // Adding qty number
+         const qtyItem = document.getElementById(quantityItem).value;
+         const itemValue = parseFloat(qtyItem);
+         document.getElementById(quantityItem).value = itemValue + 1;
+
+         // Quantity number calculated to the price
+         const priceFirstItem = document.getElementById(priceItem).innerText;
+         const priceValue = parseFloat(priceFirstItem);
+         const totalPrice = priceValue + unitPrice
+         document.getElementById(priceItem).innerText = totalPrice;
+      }
+
+      // Function for reducing items
+      function minusItem(quantityItem, priceItem, unitPrice) {
+         // Reducing qty number
+         const qtyItem = document.getElementById(quantityItem).value;
+         const itemValue = parseFloat(qtyItem);
+         if (itemValue < 1) return 1;
+
+         document.getElementById(quantityItem).value = itemValue - 1;
+
+         // Quantity number calculated to the price
+         const priceFirstItem = document.getElementById(priceItem).innerText;
+         const priceValue = parseFloat(priceFirstItem);
+         const totalPrice = priceValue - unitPrice
+         document.getElementById(priceItem).innerText = totalPrice;
+
+      }
    </script>
 </body>
 

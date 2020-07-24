@@ -29,7 +29,7 @@
                            <input id="qtyFirstItem" type="text" class="form-control text-center" value="1">
                            <button id="plusSignFirst" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$ <span id="priceFirstItem">1219</span> </h5>
                         <img src="images/remove.png" alt="" class="remove-item closeSign">
                      </div>
                   </div>
@@ -83,10 +83,16 @@
          // adding qty number
          const qtyItem = document.getElementById('qtyFirstItem').value;
          const itemValue = parseFloat(qtyItem);
-         const itemNum = document.getElementById('qtyFirstItem').value = itemValue + 1;
-         console.log(itemNum)
+         document.getElementById('qtyFirstItem').value = itemValue + 1;
+         // console.log(itemNum)
 
-
+         // quantity number calculated to the price
+         const price = 1219
+         const priceFirstItem = document.getElementById('priceFirstItem').innerText;
+         const priceValue = parseFloat(priceFirstItem);
+         const totalPrice = priceValue + price
+         document.getElementById('priceFirstItem').innerText = totalPrice;
+         // console.log(priceValue)
 
       })
    </script>

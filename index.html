@@ -25,12 +25,12 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minusSignFirst" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="qtyFirstItem" type="text" class="form-control text-center" value="1">
+                           <button id="plusSignFirst" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
                         <h5>$1219</h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+                        <img src="images/remove.png" alt="" class="remove-item closeSign">
                      </div>
                   </div>
                </div>
@@ -43,13 +43,13 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minusSignSecond" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input type="text" class="form-control text-center inputQty" value="1">
+                           <button id="plusSignSecond" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
                         <h5>$59</h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+                        <img src="images/remove.png" alt="" class="remove-item closeSign">
                      </div>
                   </div>
                </div>
@@ -77,6 +77,19 @@
          </div>
       </div>
    </section>
+   <script>
+      const plusSignFirst = document.getElementById('plusSignFirst');
+      plusSignFirst.addEventListener('click', function () {
+         // adding qty number
+         const qtyItem = document.getElementById('qtyFirstItem').value;
+         const itemValue = parseFloat(qtyItem);
+         const itemNum = document.getElementById('qtyFirstItem').value = itemValue + 1;
+         console.log(itemNum)
+
+
+
+      })
+   </script>
 </body>
 
 </html>
